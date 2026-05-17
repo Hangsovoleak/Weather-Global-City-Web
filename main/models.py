@@ -7,8 +7,7 @@ class SearchHistory(models.Model):
     humidity = models.IntegerField(null=True, blank=True)
     pressure = models.IntegerField(null=True, blank=True)
     description = models.CharField(max_length=255, null=True, blank=True)
-    serached_at = models.DateTimeField(auto_now_add=True)
+    searched_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        # return f"{self.city_name} at {self.serached_at.strftime('%Y-%m-%d %H:%M')}"
         return f"{self.city_name} at {self.searched_at.strftime('%Y-%m-%d %H:%M')}"

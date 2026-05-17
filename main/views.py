@@ -9,8 +9,8 @@ API_KEY = "6875425178db51433a67fd04e5fc0da5" #which generate from number 6767676
 def index(request):
     weather = None
     error = None
-    # recent_searches = SearchHistory.objects.order_by('-serached_at')[:5] # last 5 searches
-    recent_searches = SearchHistory.objects.order_by('-serached_at')[:5]
+    # recent_searches = SearchHistory.objects.order_by('-searched_at')[:5] # last 5 searches
+    recent_searches = SearchHistory.objects.order_by('-searched_at')[:5]
     
     if request.method == "POST":
         city = request.POST.get('city', '').strip()
@@ -40,8 +40,7 @@ def index(request):
                     )
                     
                     # refresh recent searches
-                    # recent_searches = SearchHistory.objects.order_by('-searched_at')[:5]
-                    recent_searches = SearchHistory.objects.order_by('-serached_at')[:5]
+                    recent_searches = SearchHistory.objects.order_by('-searched_at')[:5]
                 else:
                     error = data.get("message", "Could not fetch weather data.")
             except requests.RequestException:
